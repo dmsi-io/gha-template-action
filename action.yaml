@@ -1,0 +1,16 @@
+name: 'Template Action'
+description: 'Reviews code in pull requests to ensure they meet standards not checkable with unit tests or linters'
+
+inputs:
+  name:
+    required: false
+    description: 'World'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Hello User
+      run: node ${{ github.action_path }}/bin/index.js
+      shell: bash
+      env:
+        NAME: ${{ inputs.name }}
